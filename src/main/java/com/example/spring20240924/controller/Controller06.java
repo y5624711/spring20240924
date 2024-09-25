@@ -24,4 +24,38 @@ public class Controller06 {
 
         return html;
     }
+
+    // /main6/sub2
+    @RequestMapping("sub2")
+    public String method2(){
+        //1. 요청 정보 분석/가공
+        //2. 비지니스 로직 실행
+
+        //3. 응답(html)
+
+        // 앞에 /WEB-INF/view/
+        // 뒤에 .jsp
+        return "world"; //view 이름
+        //최종 jsp 위치
+        // /WEB-INF/view/abc.jsp
+        //jsp = java server page
+    }
+
+    @RequestMapping("sub3")
+    public String method3(){
+
+        // /WEB-INF/wiew/hello.jsp
+        return "hello";
+    }
+
+    @RequestMapping("sub4")
+    public String method4(){
+
+        return "hi";
+    }
+
+    @RequestMapping("sub5")
+    public String method5(){
+
+    }
 }
