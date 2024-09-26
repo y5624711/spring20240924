@@ -61,7 +61,7 @@ public class Controller06 {
     public String method5(){
 
         //jsp의 위치는 요청경로와 같은 경우가 많음
-        // /WEB-INF/view/main6/sub5.jsp
+        // /WEB-INF/view/main6/sub1.jsp
         return "/main6/sub5";
     }
 
