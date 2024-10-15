@@ -1,4 +1,5 @@
 CREATE DATABASE IF NOT EXISTS w3schools;
+# Drop DATABASE w3schools;
 USE w3schools;
 
 DROP TABLE IF EXISTS Customers;
