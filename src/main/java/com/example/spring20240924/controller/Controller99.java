@@ -1,12 +1,16 @@
 package com.example.spring20240924.controller;
 
+
 import com.example.spring20240924.dto.c27.Orders;
+import com.example.spring20240924.dto.c28.Employees;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -84,12 +88,79 @@ public class Controller99 {
             if (prevPageBtn > 0) {
                 model.addAttribute("prevPageBtn", prevPageBtn);
             }
-            
+
             // 마지막 페이지가 최종페이지 보다 크지 않도록
             model.addAttribute("endPageNumber", Math.min(endPageNumber, lastPageNumber));
             model.addAttribute("beginPageNumber", beginPageNumber);
         }
 
 
+    }
+
+    @GetMapping("sub2")
+    public void sub2(Model model, String id) {
+        String sql = """
+                SELECT *
+                FROM Employees
+                WHERE EmployeeID = ?
+                """;
+
+        try {
+            Connection con = dataSource.getConnection();
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            try (con; pstmt) {
+                pstmt.setString(1, id);
+                ResultSet rs = pstmt.executeQuery();
+
+                if (rs.next()) {
+                    Employees employee = new Employees();
+                    employee.setId(rs.getString("EmployeeID"));
+                    employee.setLastName(rs.getString("LastName"));
+                    employee.setFirstName(rs.getString("FirstName"));
+                    employee.setBirthDate(rs.getString("BirthDate"));
+                    employee.setPhoto(rs.getString("Photo"));
+                    employee.setNotes(rs.getString("Notes"));
+                    model.addAttribute(employee);
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    @PostMapping("sub3")
+    public String sub3(Employees employees, RedirectAttributes rttr) {
+        String sql = """
+                UPDATE Employees
+                SET LastName =?,
+                FirstName = ?,
+                BirthDate = ?,
+                Photo = ?,
+                Notes = ?
+                WHERE EmployeeID = ?
+                """;
+        try {
+            Connection con = dataSource.getConnection();
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            try (con; pstmt) {
+                pstmt.setString(1, employees.getLastName());
+                pstmt.setString(2, employees.getFirstName());
+                pstmt.setString(3, employees.getBirthDate());
+                pstmt.setString(4, employees.getPhoto());
+                pstmt.setString(5, employees.getNotes());
+                pstmt.setString(6, employees.getId());
+                pstmt.executeUpdate();
+                rttr.addFlashAttribute("message", employees.getId() + "번 직원 정보가 수정되었습니다.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        rttr.addAttribute("id", employees.getId());
+
+        return "redirect:/main99/sub2";
     }
 }
