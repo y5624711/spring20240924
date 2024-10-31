@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //산술연산자
+    let a = 10;
+    let b = 3;
+
+    let c = a + b;
+    let d = a - b;
+    let e = a * b;
+    let f = a / b;
+    let g = a % b;
+    let h = a ** b;//a의 b 제곱
+    console.log(c, d, e, f, g, h);
+
+    //주의점 infinite
+    let i = 10 / 0;
+    console.log(i);
+    // not a number ( NaN)
+    let j = 10 % 0;
+    console.log(j);
+
+    //산술연산 시 타입변환이 일어남
+    let l = 3;
+    let m = "5";
+    console.log(l + m); //연결연산이 됨;; 35;
+    console.log(l - m); // -2
+
+    //Number() : 타입변환
+    let n = 3;
+    let o = Number(m);
+    console.log(3 + o);
+</script>
+</body>
+</html>
