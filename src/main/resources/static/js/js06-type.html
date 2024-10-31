@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //javascript 의 자료형(data type)
+    // undefined, boolean, number, bitInt, String, symbol, object(null)
+
+    //number (실수와 정수)
+    let a = 1;
+    let b = 3.14;
+    console.log(a, b);
+    //big int
+    let c = 999999999999999999999999n;
+    console.log(c);
+
+    let d = 10 / 3; //java 와는 다르게 실수 연산이 일어난다.
+    console.log(d);
+
+    //String
+    let e = "hihihi";
+    let f = 'world';
+    let g = `javascript`; // backtick
+    console.log(e, f, g);
+    let j = "\""; //큰따옴표 안에 큼따옴표는 역슬래시와 함께
+    let k = '\''; //작은따옴표 안에 작은따옴표는 역슬래시와 함께
+    let l = ` "", '' ` //backtick `` 안에 둘 다 사용 가능
+    let m = `
+    여러 줄
+    사용 가능`
+    console.log(m);
+
+    let age = 30;
+    let name = "son";
+    let n = "내 이름은 " + name + "이고 나이는" + age + "입니다";
+    console.log(n);
+    let o = `내 이름은 ${name}이고 나이는 ${age}입니다.`;
+    console.log(o);
+
+    // java : primitive(int, short, char, .....) 8개
+    //        reference ( 나머지 다)
+
+
+</script>
+
+</body>
+</html>
