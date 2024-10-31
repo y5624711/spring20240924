@@ -55,7 +55,6 @@
     </c:if>
 
     <c:forEach begin="${beginPageNumber}" end="${endPageNumber}" var="pageNumber">
-
         <%--
         link
         1페이지 : /main27/sub5?page=1
