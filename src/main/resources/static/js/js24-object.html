@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  //객체 : 속성, 기능이 있는 데이터 덩어리(타입)
+
+  //속성(속성명 : 속성값) : property
+  let a = 3;//number
+  let b = "hi";//string
+  let c = {name: "son", age: 33, address: "seoul"};
+
+  console.log(a);
+  console.log(b);
+  console.log(c);
+
+  //각 속성을 탐색하는 방법
+  console.log(c.name);
+  console.log(c.age);
+  console.log(c.address)
+  console.log(c["name"]);
+  console.log(c['age']);
+  console.log(c[`address`]);
+
+  //연습 : 객체 만들기
+  let d = {email: "gmail", location: `korea`, married: true, score: 3.14};
+  console.log(d.email);
+  console.log(d.location);
+  console.log(d.married);
+  console.log(d.score);
+
+  //기능(method, 값이 함수인 속성)
+  let e = {
+    name: `lee`,
+    age: 22,
+    //값이 함수면 속성을 메소드라고 한다.
+    info: function a() {
+      console.log(`this is information`);
+    }
+  }
+  console.log(e.name);
+  console.log(e.age);
+  console.log(e.info);
+  e.info();//메소드 실행
+
+  let f = {
+    hello: function () {
+      console.log(`say hello`);
+    },
+
+    greeting: () => {
+      console.log(`say greeting`);
+    },
+
+    annyeong: () => {
+      console.log(`say 안녕`);
+    }
+  };
+
+  //연습 : 메소드가 있는 객체만들기
+
+  let g = {
+    height: 100,
+    weight: 150,
+    jump: () => {
+      console.log(`jump`);
+    },
+    run: () => {
+      console.log(`run`);
+    },
+    work: () => {
+      console.log(`work`);
+    }
+  }
+
+  console.log(g.height);//100
+  console.log(g.weight);//150
+  g.jump();
+  g.run();
+  g.work();
+
+  f.hello();
+  f.greeting();
+  f.annyeong();
+
+</script>
+</body>
+</html>

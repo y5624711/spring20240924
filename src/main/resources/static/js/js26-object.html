@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  let a = 3;
+  let b = a;
+  console.log(a, b);
+
+  a = 5
+  console.log(a, b);
+
+  //참조값을 가지고 있기에 값의 변동이 연동된다.
+  let c = {age: 55};
+  let d = c;
+  console.log(c, d);
+
+  c.age = 66;
+  console.log(c, d);
+
+  function fun1(a) {
+    a.city = "seoul";
+  }
+
+  let e = {city: "paris"};
+  console.log(e.city);
+  fun1(e);
+  console.log(e.city);//e의 참조값을 넘겨주기에 a의 값으로 바뀜..?
+
+  let f = {
+    name: 'son',
+    info: {
+      height: 200,
+      weight: 300
+    }
+  };
+  let g = {};
+  g.name = f.name;
+  g.info = f.info;
+
+  console.log(f.name);//son
+  console.log(g.name);//son
+  console.log(f.info);
+  console.log(g.info);
+
+  f.name = "lee";
+  console.log(f.name);//lee - 변수에 대입 했기에 값이 다름
+  console.log(g.name);//son
+
+  f.info.height = 2000;
+  console.log(f.info.height);//2000 - 함수의 참조값에 대입했기에 값이 같음
+  console.log(g.info.height);//2000
+</script>
+</body>
+</html>

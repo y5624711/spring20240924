@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function fun1() {
+    return {
+      name: 'son',
+      age: 33
+    }
+  }
+
+  let a = fun1();
+  console.log(a.name);
+  console.log(a.age);
+
+  let b = fun1();
+  console.log(b.name);
+  console.log(b.age);
+
+  a.name = "lee";
+  console.log(a.name);
+  console.log(b.name);
+
+  function fun2() {
+    let a = {
+      city: "seoul"
+    }
+    return function () {
+      return a;
+    }
+  }
+
+  let c = fun2();
+  let d = c();
+  console.log(d.city);//seoul
+  let e = c();
+  console.log(e.city);//seoul
+
+  d.city = "london";
+  console.log(d.city);
+  console.log(e.city);
+</script>
+</body>
+</html>
