@@ -20,10 +20,12 @@
       const li = document.createElement("li");
       li.innerText = text;
       const deleteButton = document.createElement("button");
+
       deleteButton.addEventListener("click", function () {
         deleteButton.parentElement.remove();
       });
       deleteButton.innerText = "-";
+
       li.append(deleteButton);
       document.querySelector("#list1").append(li);
 
