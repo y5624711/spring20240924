@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  //object
+  const a = {name: "rose", song: "apt"};
+  const b = a; //참조값 복사
+
+  console.log(a);
+  console.log(b);
+
+  b.name = "bruno";
+  console.log(a);
+  console.log(b);
+
+
+  //고전적인 방법 얕은 복사 -
+  const c = {};
+  c.name = a.name;
+  c.song = a.song;
+  c.name = "han";
+  console.log(a);
+  console.log(c);
+
+
+  //객체의 프로퍼티 접근법
+  console.log(a.name);
+  console.log(a.song);
+  console.log(a["name"]);
+  console.log(a["song"]);
+
+  // for in : 객체의 프로퍼티명들을 탐색(순서는 보장이 안됨)
+  for (const p in a) {
+    console.log(p, a[p]); //song : apt
+  }
+  //for in 사용 복사
+  const d = {};
+  for (const k in a) {
+    d[k] = a[k];
+  }
+
+  console.log(a);
+  console.log(d);
+  d.name = "son";
+  console.log(a);
+  console.log(d);
+
+  //연습
+  const e = {city: "london", age: 33, email: "gmail"};
+
+  //e를 f에 얕은 복사
+  const f = {};
+  for (const p in e) {
+    f[p] = e[p];
+  }
+  f.city = "seoul";
+  console.log(e);
+  console.log(f);
+
+  
+</script>
+</body>
+</html>
