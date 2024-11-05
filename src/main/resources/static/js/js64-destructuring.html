@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+  function fun1({name, city}) {
+
+    console.log(name, city);
+  }
+
+  const a = {name: "son", city: "seoul"};
+  fun1(a);
+
+  //예전방법
+  function fun2(param) {
+    const name = param.name;
+    const city = param.city;
+    console.log(name, city);
+  }
+
+  //연습
+  const b = {address: "korea", title: "채식주의자", content: "책내용"}
+
+  function fun3({address, title, content}) {
+    console.log(address, title, content);
+  }
+
+  fun3(b);
+</script>
+</body>
+</html>
