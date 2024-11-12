@@ -43,4 +43,14 @@ public class ApiController2 {
     public void sub6(@RequestBody List<Person> people) {
         System.out.println("people = " + people);
     }
+
+    @PostMapping("sub7")
+    public void sub7(@RequestBody List<Book> books) {
+        System.out.println("books = " + books);
+    }
+
+    //c : post
+    //r : get
+    //u :put
+    //d : delete
 }
