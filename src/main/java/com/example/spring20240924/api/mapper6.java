@@ -1,11 +1,12 @@
 package com.example.spring20240924.api;
 
 import com.example.spring20240924.dto.a6.Customer;
+import com.example.spring20240924.dto.a6.Supplier;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
 @Mapper
-public interface CustomerMapper {
+public interface mapper6 {
     @Select("""
             SELECT CustomerID id,
                    CustomerName name,
@@ -18,4 +19,18 @@ public interface CustomerMapper {
             WHERE CustomerID=#{customerID}
             """)
     Customer selectById(Integer customerId);
+
+    @Select("""
+            SELECT SupplierId id,
+                   SupplierName name,
+                   ContactName contact,
+                   Address,
+                   City,
+                   PostalCode,
+                   Country,
+                   Phone
+            FROM Suppliers
+            WHERE SupplierID=#{supplierID}
+            """)
+    Supplier selectSupplierById(Integer supplierId);
 }
