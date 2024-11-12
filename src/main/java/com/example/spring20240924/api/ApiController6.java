@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/api/main6")
 @RequiredArgsConstructor
+@ResponseBody
 public class ApiController6 {
     private final service6 service;
 
     @GetMapping("sub1/{customerId}")
-    @ResponseBody
     public Customer get(@PathVariable Integer customerId) {
         return service.getCustomer(customerId);
     }
