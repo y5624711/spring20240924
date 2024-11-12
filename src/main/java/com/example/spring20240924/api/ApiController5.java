@@ -1,5 +1,8 @@
 package com.example.spring20240924.api;
 
+import com.example.spring20240924.dto.a5.Book;
+import com.example.spring20240924.dto.a5.Company;
+import com.example.spring20240924.dto.a5.Customer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,5 +54,34 @@ public class ApiController5 {
 
         return Map.of("product", Map.of("name", "son", "price", 10000, "quantity", 10),
                 "company", Map.of("location", List.of("seoul", "london")));
+    }
+
+    @GetMapping("sub8")
+    @ResponseBody
+    public Book sub8() {
+        Book book = new Book();
+        book.setPrice(50000);
+        book.setAuthor("한강");
+        book.setTitle("제목");
+        book.setContent("소설");
+
+        return book;
+    }
+
+    @GetMapping("sub9")
+    @ResponseBody
+    public Customer sub9() {
+        Customer customer = new Customer();
+        Company company = new Company();
+        company.setName("삼성");
+        company.setLocation("서울");
+
+        customer.setName("김");
+        customer.setAddress("서울");
+        customer.setMarried(false);
+        customer.setItems(List.of("아이폰", "갤럭시"));
+        customer.setCompany(company);
+
+        return customer;
     }
 }
